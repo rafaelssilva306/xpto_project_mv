@@ -7,7 +7,7 @@ public class Cliente {
 		private Integer id;
 	    private String nome;
 	    private Integer enderecoID;
-	    private Date cadastradaEm;
+	    private Date aberturaConta;
 	    
 	    public Cliente() {
 	    }
@@ -36,19 +36,19 @@ public class Cliente {
 			this.enderecoID = enderecoID;
 		}
 
-		public Date getCadastradaEm() {
-			return cadastradaEm;
+		public Date getAberturaConta() {
+			return aberturaConta;
 		}
 
-		public void setCadastradaEm(Date cadastradaEm) {
-			this.cadastradaEm = cadastradaEm;
+		public void setAberturaConta(Date aberturaConta) {
+			this.aberturaConta = aberturaConta;
 		}
 
 		@Override
 		public int hashCode() {
 			final int prime = 31;
 			int result = 1;
-			result = prime * result + ((cadastradaEm == null) ? 0 : cadastradaEm.hashCode());
+			result = prime * result + ((aberturaConta == null) ? 0 : aberturaConta.hashCode());
 			result = prime * result + ((enderecoID == null) ? 0 : enderecoID.hashCode());
 			result = prime * result + ((id == null) ? 0 : id.hashCode());
 			result = prime * result + ((nome == null) ? 0 : nome.hashCode());
@@ -64,10 +64,10 @@ public class Cliente {
 			if (getClass() != obj.getClass())
 				return false;
 			Cliente other = (Cliente) obj;
-			if (cadastradaEm == null) {
-				if (other.cadastradaEm != null)
+			if (aberturaConta == null) {
+				if (other.aberturaConta != null)
 					return false;
-			} else if (!cadastradaEm.equals(other.cadastradaEm))
+			} else if (!aberturaConta.equals(other.aberturaConta))
 				return false;
 			if (enderecoID == null) {
 				if (other.enderecoID != null)
@@ -86,7 +86,8 @@ public class Cliente {
 				return false;
 			return true;
 		}
-	    
+
+
 
 	    
 }

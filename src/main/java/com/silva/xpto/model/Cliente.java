@@ -1,12 +1,43 @@
 package com.silva.xpto.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
-public class Cliente {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+	@Entity
+	@Table(name = "cliente")
+	public class Cliente {
+		
+		@Id
+		@GeneratedValue(generator = "cliente_seq")
+		@Column(name = "id_cliente")
 		private Integer id;
+		
 	    private String nome;
-	    private Integer enderecoID;
+	    
+	    @Column(name = "cpf_cnpj")
+	    private String cpfCnpj;
+	    
+	    private String endereco;
+	    private String bairro;
+	    private String cidade;
+	    private Integer numero;
+	    private Integer cep;
+	    private String complemento;
+	    private String telefone;
+	    
+	    
+	    @Column(name = "data_cadastro")
+	    private LocalDate dataCadastro;
+	    
+	    @Column(name = "saldo_inicial")
+	    private Double saldoInicial;
+	    
 	    private Date aberturaConta;
 	    
 	    public Cliente() {
@@ -28,12 +59,84 @@ public class Cliente {
 			this.nome = nome;
 		}
 
-		public Integer getEnderecoID() {
-			return enderecoID;
+		public String getCpfCnpj() {
+			return cpfCnpj;
 		}
 
-		public void setEnderecoID(Integer enderecoID) {
-			this.enderecoID = enderecoID;
+		public void setCpfCnpj(String cpfCnpj) {
+			this.cpfCnpj = cpfCnpj;
+		}
+
+		public String getEndereco() {
+			return endereco;
+		}
+
+		public void setEndereco(String endereco) {
+			this.endereco = endereco;
+		}
+
+		public String getBairro() {
+			return bairro;
+		}
+
+		public void setBairro(String bairro) {
+			this.bairro = bairro;
+		}
+
+		public String getCidade() {
+			return cidade;
+		}
+
+		public void setCidade(String cidade) {
+			this.cidade = cidade;
+		}
+
+		public Integer getNumero() {
+			return numero;
+		}
+
+		public void setNumero(Integer numero) {
+			this.numero = numero;
+		}
+
+		public Integer getCep() {
+			return cep;
+		}
+
+		public void setCep(Integer cep) {
+			this.cep = cep;
+		}
+
+		public String getComplemento() {
+			return complemento;
+		}
+
+		public void setComplemento(String complemento) {
+			this.complemento = complemento;
+		}
+
+		public String getTelefone() {
+			return telefone;
+		}
+
+		public void setTelefone(String telefone) {
+			this.telefone = telefone;
+		}
+
+		public LocalDate getDataCadastro() {
+			return dataCadastro;
+		}
+
+		public void setDataCadastro(LocalDate dataCadastro) {
+			this.dataCadastro = dataCadastro;
+		}
+
+		public Double getSaldoInicial() {
+			return saldoInicial;
+		}
+
+		public void setSaldoInicial(Double saldoInicial) {
+			this.saldoInicial = saldoInicial;
 		}
 
 		public Date getAberturaConta() {
@@ -43,51 +146,7 @@ public class Cliente {
 		public void setAberturaConta(Date aberturaConta) {
 			this.aberturaConta = aberturaConta;
 		}
-
-		@Override
-		public int hashCode() {
-			final int prime = 31;
-			int result = 1;
-			result = prime * result + ((aberturaConta == null) ? 0 : aberturaConta.hashCode());
-			result = prime * result + ((enderecoID == null) ? 0 : enderecoID.hashCode());
-			result = prime * result + ((id == null) ? 0 : id.hashCode());
-			result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-			return result;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			Cliente other = (Cliente) obj;
-			if (aberturaConta == null) {
-				if (other.aberturaConta != null)
-					return false;
-			} else if (!aberturaConta.equals(other.aberturaConta))
-				return false;
-			if (enderecoID == null) {
-				if (other.enderecoID != null)
-					return false;
-			} else if (!enderecoID.equals(other.enderecoID))
-				return false;
-			if (id == null) {
-				if (other.id != null)
-					return false;
-			} else if (!id.equals(other.id))
-				return false;
-			if (nome == null) {
-				if (other.nome != null)
-					return false;
-			} else if (!nome.equals(other.nome))
-				return false;
-			return true;
-		}
-
-
-
 	    
+	    
+	
 }

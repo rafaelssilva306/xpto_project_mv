@@ -1,0 +1,1 @@
+insert into cliente (nome, telefone, cep, estado, cidade, bairro, rua, numero, complemento, saldo_inicial) values ('Rafael', '11995360708', '08694030', 'São Paulo', 'Suzano', 'Jardim Revista','Guarani', '921', 'casa 1', '650');

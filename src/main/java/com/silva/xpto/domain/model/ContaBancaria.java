@@ -1,11 +1,9 @@
-package com.silva.xpto.model;
-
-import java.math.BigDecimal;
-import java.util.Date;
+package com.silva.xpto.domain.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,12 +12,14 @@ import javax.persistence.Table;
 public class ContaBancaria {
 
 	@Id
-	@GeneratedValue(generator = "conta_bancaria_seq")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_conta_bancaria")
-	private Integer idContaBancaria;
+	private Long idContaBancaria;
 	private String nome;
+	
 	@Column(name = "codigo_banco")
 	private String codigoBanco;
+	
 	@Column(name = "numero_conta")
 	private Integer numeroConta;
 	private Integer agencia;
@@ -27,11 +27,11 @@ public class ContaBancaria {
 	public ContaBancaria() {
 	}
 
-	public Integer getIdContaBancaria() {
+	public Long getIdContaBancaria() {
 		return idContaBancaria;
 	}
 
-	public void setIdContaBancaria(Integer idContaBancaria) {
+	public void setIdContaBancaria(Long idContaBancaria) {
 		this.idContaBancaria = idContaBancaria;
 	}
 
@@ -65,6 +65,31 @@ public class ContaBancaria {
 
 	public void setAgencia(Integer agencia) {
 		this.agencia = agencia;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((idContaBancaria == null) ? 0 : idContaBancaria.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ContaBancaria other = (ContaBancaria) obj;
+		if (idContaBancaria == null) {
+			if (other.idContaBancaria != null)
+				return false;
+		} else if (!idContaBancaria.equals(other.idContaBancaria))
+			return false;
+		return true;
 	}
 	
 	

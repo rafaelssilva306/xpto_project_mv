@@ -1,14 +1,13 @@
 package com.silva.xpto.domain.repository;
 
-import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.silva.xpto.domain.model.Cliente;
 
-public interface ClienteRepository {
-	
-	List<Cliente> listar();
-	Cliente buscar(Long id);
-	Cliente salvar(Cliente cliente);
-	void remover(Cliente cliente);
-	
+@Repository
+public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
+  Optional<Cliente> findByCpfCnpj(String cpfCnpj);
 }

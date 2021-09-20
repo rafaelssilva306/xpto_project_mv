@@ -1,14 +1,14 @@
 package com.silva.xpto.domain.repository;
 
-import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.silva.xpto.domain.model.ContaBancaria;
 
-public interface ContaBancariaRepository {
-	
-	List<ContaBancaria> listar();
-	ContaBancaria buscar(Long id);
-	ContaBancaria salvar(ContaBancaria contabancaria);
-	void remover(ContaBancaria contabancaria);
-	
+@Repository
+public interface ContaBancariaRepository extends JpaRepository<ContaBancaria, Integer>{
+  Optional<ContaBancaria> findByCodigoBancoAndNumeroContaAndAgencia(String codigoBanco, Integer numeroConta, Integer Agencia);
 }
+
